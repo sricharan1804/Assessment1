@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.form-title{
+    color: #000;
+}
+hr{
+    border-bottom: 3px solid black;
+}
+form {
+    border: 2px solid black;
+    padding: 30px;
+}
+.col-25 {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+}
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+label {
+    display: inline-block;
+    font-style:italic;
+    font-weight: 700;
+    font-family: cursive;
+}
+input[type=text],input[type=email],input[type=date],input[type=number], select, textarea {
+    font-family: cursive;
+    width: 50%;
+    border: 2px solid #000;
+    resize: vertical;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 4px;
+    padding: 4px;
+    vertical-align: middle;
+}
+button {
+    background-color: transparent;
+    border: 3px solid black;
+    font-weight: 700;
+    width: 150px;
+    height: 30px;
+    margin: 20px;
+}

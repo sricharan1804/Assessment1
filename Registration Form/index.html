@@ -1,0 +1,358 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .form-title{
+            color: #000;
+        }
+        hr{
+            border-bottom: 3px solid black;
+        }
+        .container{
+            margin-top: 50px;
+        }
+        form {
+            border: 2px solid black;
+            padding: 25px;
+        }
+        label{
+            font-style:italic;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 5px;
+            font-family: cursive;
+        }
+        .form-control{
+            border: 2px solid black;
+            padding: 20px;
+            width: 90%;
+            resize: vertical;
+            padding: 20px;
+        }
+        button {
+            background-color: transparent;
+            border: 3px solid black;
+            font-weight: 700;
+            width: 150px;
+            height: 40px;
+            margin: 25px;
+        }
+        caption{
+            caption-side: top;
+        }
+    </style>
+</head>
+<body>
+    <!--<div class="container">
+        <h4 class="form__title">Registration Form</h4>
+        <hr>
+    </div>
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+            <div class="row">
+                <div class="col-lg-6">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">
+                              Firstname:
+                            </label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" formControlName="firstName">
+                            <div class="errors" *ngIf="register('firstName')">
+          <div *ngIf="f.firstName.errors.required">Firstname is required</div>
+          <div *ngIf="f.firstName.errors.pattern">Firstname should be in Alphabets  
+          </div>
+        </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">
+                            Lastname:
+                            </label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" formControlName="lastName">
+                             <div class="errors"*ngIf="register('lastName')">
+          <div *ngIf="f.lastName.errors.required">Lastname is required</div>
+          <div *ngIf="f.lastName.errors.pattern">Lastname should be in Alphabets</div>
+        </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">
+                              Email:
+                              </label>
+                            <div class="col-sm-10">
+                              <input type="email" class="form-control" formControlName="emailAddress">
+                              <div class="errors" *ngIf="register('emailAddress')">
+          <div *ngIf="f.emailAddress.errors.required">Emailaddress is required</div>
+          <div *ngIf="f.emailAddress.errors.email">Emailaddress should be in @</div>
+        </div>  
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">
+                              Dob:
+                              </label>
+                            <div class="col-sm-10">
+                              <input type="date" class="form-control" formControlName="dob">
+                               <div class="errors" *ngIf="register('dob')">
+          <div *ngIf="f.dob.errors.required">Date Of Birth is required</div>
+        </div>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">
+                              Phone:
+                              </label>
+                            <div class="col-sm-10">
+                              <input type="number" class="form-control">
+                            </div>
+                          </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">
+                          Address:
+                        </label>
+                      <div class="col-sm-10">
+                        <textarea type="text" class="form-control" formControlName="address">
+                        </textarea>
+                         <div class="errors" *ngIf="register('address')">
+          <div *ngIf="f.address.errors.required">Address is required</div>
+        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">
+                          Country:
+                      </label>
+                      <div class="col-sm-10">
+                        <select class="form-control" formControlName="country">
+                            <option>India</option>
+                            <option>Australia</option>
+                            <option>Srilanka</option>
+                        </select>
+                         <div class="errors" *ngIf="register('country')">
+          <div *ngIf="f.country.errors.required">Country is required</div>
+        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">
+                            State:
+                        </label>
+                        <div class="col-sm-10">
+                          <select class="form-control" formControlName="state">
+                              <option>Ap</option>
+                              <option>Telangana</option>
+                              <option>Karnataka</option>
+                          </select>
+                          <div class="errors" *ngIf="register('state')">
+          <div *ngIf="f.state.errors.required">State is required</div>
+        </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">
+                          Zip:
+                          </label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" formControlName="zip">
+                           <div class="errors" *ngIf="register('zip')">
+          <div *ngIf="f.zip.errors.required">Zipcode is required</div>
+          <div *ngIf="f.zip.errors.pattern">Zipcode should be 6 digits</div>
+        </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <button type="button" (click)="onRegisterReset()">RESET</button>
+                        <button type="submit">SAVE</button>
+                      </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+-->
+<div class="container">
+    <h4 class="form__title">Registered Users</h4>
+    <hr>
+</div>
+<div class="table-responsive">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordered ">
+                <caption><button class="btn btn-danger btn-md">Delete Selected</button></caption>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox">
+                        </th>
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th>Date of birth</th>
+                        <th>Phone(s)</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>sai charan</td>
+                        <td>msunnylive@gmail.com</td>
+                        <td>18-04-1997</td>
+                        <td>6301587956</td>
+                        <td>9-136,r.s.road,cty,ap</td>
+                        <td><i class="fa fa-trash"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
+<div class="container">
+  <h4 class="form__title">Registration Form</h4>
+  <hr>
+</div>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group row ">
+        <label>First Name : </label>
+        <div class="col-lg-4">
+        <input type="text" formControlName="firstName">
+        <div class="errors" *ngIf="register('firstName')">
+          <div *ngIf="f.firstName.errors.required">Firstname is required</div>
+          <div *ngIf="f.firstName.errors.pattern">Firstname should be in Alphabets
+  
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>Last Name : </label>
+        <div class="col-lg-4">
+        <input type="text" formControlName="lastName">
+        <div class="errors"*ngIf="register('lastName')">
+          <div *ngIf="f.lastName.errors.required">Lastname is required</div>
+          <div *ngIf="f.lastName.errors.pattern">Lastname should be in Alphabets</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>Email : </label>
+        <div class="col-lg-4">
+        <input type="email" formControlName="emailAddress">
+        <div class="errors" *ngIf="register('emailAddress')">
+          <div *ngIf="f.emailAddress.errors.required">Emailaddress is required</div>
+          <div *ngIf="f.emailAddress.errors.email">Emailaddress should be in @</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>DOB : </label>
+        <div class="col-lg-4">
+        <input type="date" formControlName="dob">
+        <i style='font-size:24px' class='far'>&#xf073;</i>
+        <div class="errors" *ngIf="register('dob')">
+          <div *ngIf="f.dob.errors.required">Date Of Birth is required</div>
+        </div>
+      </div>
+      </div>
+      <!-- <div class="form-group">
+        <label>Phone : </label>
+        <input type="number" formControlName="phoneNumber" >
+        <i style='font-size:24px'class='fas' (click)="addSkill()">&#xf067;</i>
+        <div class="errors" *ngIf="register('phoneNumber')">
+          <div *ngIf="f.phoneNumber.errors.required">Phonenumber is required</div>
+          <div *ngIf="f.phoneNumber.errors.pattern">Phonenumber should be in 10 digits</div>
+        </div>
+        <span *ngFor="let control of skills.controls; index as i">
+          <input type="number" [formControl]="skills.controls[i]" />
+          <i class="fa fa-trash" (click)="removeSkill(i)"></i>
+        </span>
+      </div> -->
+      <!-- <div formArrayName="phoneNumber">
+        <label>Phone Number : </label>
+        <i style='font-size:24px;color: red;'class='fas'
+        (click)="onAddNumber(num)">&#xf067;</i>
+        <input class="form-control" type="number" #num>
+        <div class="form-group" *ngFor="let i of getNumber.controls">
+          <input type="number" [value]="i.value"> <i class="fa fa-trash" (click)="remove(i)"></i>
+        </div>
+        <div class="errors" *ngIf="register('phoneNumber')">
+          <div *ngIf="f.phoneNumber.errors.required">Phonenumber is required</div>
+          <div *ngIf="f.phoneNumber.errors.pattern">Phonenumber should be in 10 digits</div>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-6">
+      <div class="form-group row">
+        <label>Address : </label>
+        <div class="col-lg-4">
+        <textarea formControlName="address"></textarea>
+        <div class="errors" *ngIf="register('address')">
+          <div *ngIf="f.address.errors.required">Address is required</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>Country : </label>
+        <div class="col-lg-4">
+        <select formControlName="country">
+          <option>India</option>
+          <option>Australia</option>
+        </select>
+        <div class="errors" *ngIf="register('country')">
+          <div *ngIf="f.country.errors.required">Country is required</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>State : </label>
+        <div class="col-lg-4">
+        <select formControlName="state">
+          <option>Ap</option>
+          <option>Teleangana</option>
+        </select>
+        <div class="errors" *ngIf="register('state')">
+          <div *ngIf="f.state.errors.required">State is required</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group row">
+        <label>Zip : </label>
+        <div class="col-lg-4">
+        <input type="number" formControlName="zip">
+        <div class="errors" *ngIf="register('zip')">
+          <div *ngIf="f.zip.errors.required">Zipcode is required</div>
+          <div *ngIf="f.zip.errors.pattern">Zipcode should be 6 digits</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-group">
+        <button type="button" (click)="onRegisterReset()">RESET</button>
+        <button type="submit">SUBMIT</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
